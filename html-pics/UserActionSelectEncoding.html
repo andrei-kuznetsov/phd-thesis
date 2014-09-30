@@ -1,0 +1,31 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1251">
+<script type="text/javascript">
+function postResponse(encoding) {
+  var req = new XMLHttpRequest();
+
+  req.onreadystatechange = function() {
+    // перенаправление на /status/request/<reqId> в случае успеха
+    // или сообщение об ошибке
+  }
+
+  req.open('POST', '/useraction/<reqId>/<actionId>', true);
+  req.overrideMimeType("application/x-www-form-urlencoded");
+  req.send('encoding=' + encoding);
+}
+</script>
+</head>
+<body>
+  <h1>Выберите кодировку исходных текстов:</h1>
+
+  <ul>
+    <li><a href="javascript:postResponse('UTF-8')">UTF-8</a> 
+    <br>
+    <li><a href="javascript:postResponse('Windows-1251')">Windows-1251 (windows cyrillic)</a> 
+    <br>
+    <li>Другая (введите и нажмите ОК):
+    <input id="encoding"> <a href="javascript:postResponse(document.getElementById('encoding').value)">ok</a>
+  </ul>
+</body>
+</html>

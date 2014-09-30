@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-1251">
+<script type="text/javascript">
+function postResponse(encoding) {
+  var req = new XMLHttpRequest();
+
+  req.onreadystatechange = function() {
+    // перенаправление на /status/request/<reqId> в случае успеха
+    // или сообщение об ошибке
+  }
+
+  req.open('POST', '/useraction/<reqId>/<actionId>', true);
+  req.overrideMimeType("application/x-www-form-urlencoded");
+  req.send('encoding=' + encoding);
+}
+</script>
+</head>
+<body>
+	<h1>Известные форматы запуска:</h1>
+	
+	<ul>
+		<li><a href="javascript:postResponse('runFormat=Mirex_Aud_ChEst')">MIREX: Audio chord estimation task:</a> exec {inFileList} {scratch} {outDir} 
+		<br>
+		<li><a href="javascript:postResponse('runFormat=Rest')">Free-form REST:</a> /a1/a2/a3/a4 &rarr; exec {a1} {a2} {a3} {a4} 
+		<br>
+	</ul>
+	
+</body>
+</html>
