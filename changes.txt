@@ -1,0 +1,2 @@
+Action:: setParam
+DownloadActionBase extends ActionFactBase<ArtifactRef>
